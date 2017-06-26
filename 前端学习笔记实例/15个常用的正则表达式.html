@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>15个常用的正则表达式</title>
+    <style type="text/css" media="screen">
+    .oli {
+        color: red;
+        cursor: pointer;
+    }
+
+    .oli:hover {
+        color: blue;
+    }
+
+    .change {
+        color: blue;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="demo">
+    </div>
+    <div id="testdiv">adadasd</div>
+    <script type="text/javascript" src='jquery.js'></script>
+    <script type="text/javascript">
+    for (var i = 0; i < 5; i++) {
+        var li = $('<li class="oli"><span>陕吉闽贵粤青藏川宁琼使领' + i + '</span></li>');
+        $('.demo').append(li);
+    }
+    $('.oli span').on("click",function(e){
+    	e.stopPropagation();
+    })
+    $('.oli').on('click', function(event) {
+event.stopPropagation();
+        $('.oli').removeClass('change');
+        $(this).addClass('change');
+        console.log(event.target);
+
+    })
+
+
+   /*  //jQuery event封装支持判断元素上是否绑定了事件，此方法只适用于jQuery绑定的事件
+    $("#testdiv").on('click', function() {
+        var $events = $("#testdiv").data("events");
+        if ($events && $events["click"]) {　　 //your code here
+            console.log("+++++++++++")
+        }
+    }) */
+    $('#testdiv').click(function(event, wasTriggered) {
+    	console.log(wasTriggered);
+        if (wasTriggered) {
+            alert('triggered in code');
+        } else {
+            alert('triggered by mouse');
+        }
+    });
+    $('.oli').trigger('keyDown', true);
+    </script>
+</body>
+
+</html>

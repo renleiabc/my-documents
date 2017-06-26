@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery.isEmptyObject() 函数详解</title>
+	<!-- <script type="text/javascript" src="../js/jquery-1.4.2.min.js"></script> -->
+
+</head>
+<body>
+	<div class="demo">
+		dadada
+	</div>
+	<script type="text/javascript">
+		var obj = {};
+		 obj.s = 3;
+		/* if($.isEmptyObject(obj)){
+			console.log(0);
+		} */
+		var $ = {
+			isEmptyObject:function(obj){
+				var name;
+				for(var name in obj){
+					return false;
+				}
+				return true;
+			}
+		}
+		console.log($.isEmptyObject(obj));
+	</script>
+</body>
+</html>

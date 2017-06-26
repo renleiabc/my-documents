@@ -1,0 +1,22 @@
+<html>
+
+<head>
+    <script type="text/<a href=" http://lib.csdn.net/base/javascript " class='replace_word' title="JavaScript知识库 " target='_blank' style='color:#df3434; font-weight:bold;'>JavaScript</a>">
+        function selectMultiple() { var o = document.getElementById("mySelect"); var str = ""; for(i=0;i
+        <o.length;i++){ if(o.options[i].selected){ str+=o.options[i].value+ ","; } } alert( str.substr(0,str.length-1) ); } </script>
+</head>
+
+<body>
+    <form>
+        <select id="mySelect" size="4" multiple="true">
+            <option value="b">苹果</option>
+            <option value="c">桃子</option>
+            <option value="d">香蕉</option>
+            <option value="e">桔子</option>
+        </select>
+        <input type="button" onclick="selectMultiple()" value="取值">
+    </form>
+    <p>在您点击 “取值” 按钮之前，可查看所选值的内容。</p>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery选项卡</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <style type="text/css" media="screen">
+    li{
+    	list-style: none;
+    }
+    a{
+    	text-decoration: none;
+    }
+    .maintenanNav {
+        width: 100%;
+        height: 25px;
+        margin-top: 20px;
+    }
+
+    .maintenanUl {
+        width: 159px;
+        height: 25px;
+        float: left;
+    }
+
+    .maintenanLine {
+        float: left;
+        height: 24px;
+        width: 841px;
+        border-bottom: 2px solid #d3d3d3;
+    }
+
+    .maintenanBorder {
+        float: left;
+        height: 24px;
+        border: 1px solid #d3d3d3;
+        line-height: 24px;
+        width: 70px;
+        text-align: center;
+        cursor: pointer;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        -webkit-border-top-left-radius: 7px;
+        -webkit-border-top-right-radius: 7px;
+        -moz-border-top-left-radius: 7px;
+        -moz-border-top-right-radius: 7px;
+        -ms-border-top-left-radius: 7px;
+        -ms-border-top-right-radius: 7px;
+    }
+
+    .maintenanUl li a {
+        color: #11143f;
+    }
+
+    .maintenanUlA {
+        height: 20px;
+        width: 100%;
+        line-height: 20px;
+        display: block;
+        border-top: 5px solid transparent;
+    }
+
+    .maintenanUl li a:hover {
+        border-top: 5px solid #3581ba;
+        height: 20px;
+        width: 100%;
+        line-height: 20px;
+        display: block;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        -webkit-border-top-left-radius: 7px;
+        -webkit-border-top-right-radius: 7px;
+        -moz-border-top-left-radius: 7px;
+        -moz-border-top-right-radius: 7px;
+        -ms-border-top-left-radius: 7px;
+        -ms-border-top-right-radius: 7px;
+    }
+
+    .maintenanSecond {
+        width: 15px;
+        height: 24px;
+        float: left;
+        border-bottom: 2px solid #d3d3d3;
+    }
+
+    .maintenanAticve {
+        border-top: 5px solid #3581ba;
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+        -webkit-border-top-left-radius: 7px;
+        -webkit-border-top-right-radius: 7px;
+        -moz-border-top-left-radius: 7px;
+        -moz-border-top-right-radius: 7px;
+        -ms-border-top-left-radius: 7px;
+        -ms-border-top-right-radius: 7px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="maintenanNav">
+        <ul class="maintenanUl">
+            <li class="maintenanBorder"><a href="#" class="maintenanUlA">故障代码</a></li>
+            <li class="maintenanSecond"></li>
+            <li class="maintenanBorder"><a href="#" class="maintenanUlA">维修代码</a></li>
+        </ul>
+        <div class="maintenanLine"></div>
+    </div>
+    <script type="text/javascript">
+ $(".maintenanBorder").mouseover(function () {
+        $(this).css({
+            borderBottom: "none",
+
+        });
+    });
+        $(".maintenanBorder").mouseout(function () {
+            $(this).css({
+                borderBottom: "1px solid #d3d3d3",
+
+            });
+        });
+        /**
+         * [description]
+         * @Author    [renlei]
+         * @DateTime  2017-03-30T15:44:41+0800
+         * Typecho Blog Platform
+         * @copyright [copyright]
+         * @license   [license]
+         * @version   [version]
+         * @param     [param]
+         * @param     {[type]}
+         */
+    $(".maintenanBorder").on('click',function () {
+        //console.log(this);
+        $(this).unbind('mouseout');
+        $(".maintenanBorder").not(this).css({borderBottom: "1px solid #d3d3d3",});
+        $(".maintenanBorder").not(this).children().removeClass("maintenanAticve");
+        $(this).css({borderBottom: "none",});
+        $(this).children().addClass("maintenanAticve");
+    })
+    </script>
+</body>
+
+</html>

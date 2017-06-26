@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>serialize()序列化元素</title>
+    <script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+    <form action="#" id="form1">
+        <p>comment:</p>
+        <p>name:
+            <input type="text" name="username" id="username">
+        </p>
+        <p>content:
+            <textarea name="content" id="content" rows="2" cols="20"></textarea>
+        </p>
+        <p>
+            password:
+            <input type="password" name="password" id="password">
+        </p>
+    </form>
+    <div class="comment">
+        aleralyComment:
+        <div id="resText">
+        </div>
+    </div>
+    <input type="checkbox" name="check" value="1" class="chk">
+    <input type="checkbox" name="check" value="2" class="chk">
+    <input type="checkbox" name="check" value="3" class="chk">
+    <input type="checkbox" name="check" value="4" class="chk">
+    <input type="checkbox" name="check" value="5" class="chk">
+    <input type="button" name="" value="btn" class="btn">
+    <p id="results"><b>Results:</b> </p>
+    <form>
+        <select name="single">
+            <option>Single</option>
+            <option>Single2</option>
+        </select>
+        <select name="multiple" multiple="multiple">
+            <option selected="selected">Multiple</option>
+            <option selected="selected">Multiple2</option>
+            <option selected="selected">Multiple3</option>
+        </select>
+        <br/>
+        <input type="checkbox" name="check" value="check1" /> check1
+        <input type="checkbox" name="check" value="check2" checked="checked" /> check2
+        <input type="radio" name="radio" value="radio1" checked="checked" /> radio1
+        <input type="radio" name="radio" value="radio2" /> radio2
+    </form>
+    <select name= “education” id=”education” multiple=”multiple”>
+       <option value=”1”>高中</option>
+       <option value=”2”>大学</option>
+       <option value=”3”>博士</option>
+</select>
+    <script type="text/javascript">
+    var form = $("#form1").serialize();
+    console.log(form);
+    var obj = {
+        a: 1,
+        b: 2,
+        c: 3
+    };
+   /*  var arr = {
+            a: 1,
+            b: 2,
+            c: 3
+        },
+        {
+            a: 1,
+            b: 2,
+            c: 3
+        }, {
+            a: 1,
+            b: 2,
+            c: 3
+        }, {
+            a: 1,
+            b: 2,
+            c: 3
+        }]; */
+    var k = $.param(obj);
+    console.log(k);
+   // var s = $.param(arr);
+    //console.log(s);
+    var fields;
+    $(".btn").on('click', function() {
+        fields = $("input:checkbox").serializeArray();
+        console.log(JSON.stringify(fields));
+    })
+    var field = $("select, :radio").serializeArray();
+    jQuery.each(field, function(i, field) {
+        $("#results").append(field.value + " ");
+    });
+    console.log(JSON.stringify(field));
+    </script>
+</body>
+
+</html>

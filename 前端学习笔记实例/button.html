@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<script type="text/javascript" src="jquery.js"></script>
+</head>
+
+<body>
+    <h1>该demo用于测试jquery附加了事件以后可不可以动态改变事件有无，及顺序</h1>
+    <input id="btn" type="button" value="点击我执行事件,分别执行三个次序弹窗" />
+    <br/>
+    <input id="btn_clear" type="button" value="点击清空执行事件，清空后第一个按钮无反应" />
+    <br/>
+    <input id="btn_revert" type="button" value="点击还原执行事件，点击后第一个按钮又会有反应" />
+    <br/>
+    <input id="btn_seq" type="button" value="点击我改变执行事件顺序，顺序会改变" />
+    <br/>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#btn").click(function() {
+            alert(1);
+        });
+        $("#btn").click(function() {
+            alert(2);
+        });
+        $("#btn").click(function() {
+            alert(3);
+        });
+        var _arr_events = $("#btn").data("events")["click"];
+        $("#btn_clear").click(function() {
+            $("#btn").data("events")["click"] = undefined;
+        });
+        $("#btn_revert").click(function() {
+            $("#btn").data("events")["click"] = _arr_events;
+        });
+
+    });
+    </script>
+</body>
+
+</html>

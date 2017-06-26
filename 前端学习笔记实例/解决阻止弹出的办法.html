@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>解决阻止弹出的办法</title>
+    <script type="text/javascript" src="jquery.js"></script>
+</head>
+
+<body>
+<input type="button" name="" id="btn" value="解决阻止弹出的办法">
+
+    <script type="text/javascript">
+    //打开新链接方法实现
+   /*  function windowOpen(url,target) {
+        var a = document.createElement("a");
+        a.setAttribute("href", url);
+        if (target == null) {
+            target = '';
+        }
+        a.setAttribute("target", target);
+        document.body.appendChild(a);
+        console.log("++++++++++++=")
+        if (a.click) {
+            a.click();
+            console.log("0000000000000000")
+        } else {
+            try {
+                var evt = document.createEvent('Event');
+                a.initEvent('click', true, true);
+                a.dispatchEvent(evt);
+                console.log("11111111111")
+            } catch (e) {
+                window.open(url);
+                console.log("222222222")
+            }
+        }
+        document.body.removeChild(a);
+    }
+
+    //当前窗口打开
+   // windowOpen('http://www.111cn.net/', '_self');
+    var oBtn = document.getElementById('btn');
+    oBtn.onclick = function (){
+    	  //新窗口打开
+    windowOpen('http://www.111cn.net/', '_blank');
+ /*    } */
+ /*
+    var oBtn = document.getElementById('btn');
+     var url = "http://www.111cn.net";
+     console.log($("#btn")[0]);
+oBtn.addEventListener('click', function (url) {
+            // 打开页面，此处最好使用提示页面
+            var newWin = window.open('loading page');
+
+            $.ajax().done(function() {
+                // 重定向到目标页面
+                newWin.location.href = 'target url';
+            });
+        },false);
+ */
+
+    </script>
+</body>
+
+</html>

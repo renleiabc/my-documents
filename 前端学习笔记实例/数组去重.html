@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+	function unique(arr){
+		var result=[],hash={};
+		for(var i=0,elem;(elem = arr[i]) != null;i++){
+			if(!hash[elem]){
+				result.push(elem);
+				hash[elem] = true;
+			}
+		}
+		return result;
+	}
+	var arr = [1,1,222,222,3,"2","2","a","a"];
+	console.log(unique(arr));
+</script>
+</body>
+</html>

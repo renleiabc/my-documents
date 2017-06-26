@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+    <input type="button" value="1" />
+    <input type="button" value="2" />
+    <input type="button" value="3" />
+    <input type="button" value="4" />
+
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+</div>
+<script>
+    window.onload=function(){
+        var box=document.getElementById('box');
+        var input=box.getElementsByTagName('input');
+        var div=box.getElementsByTagName('div');
+
+        for(var i=0;i<input.length;i++){  //循环历遍onclick事件
+           input[i].index=i; //input[0].index=0 index是自定义属性
+           input[i].onclick=function(){
+              for(var i=0;i<input.length;i++){  //循环历遍去掉button样式和把div隐藏
+                 input[i].className='';
+                 div[i].style.display='none';
+              };
+              this.className='active';  //当前按钮添加样式
+              div[this.index].style.display='block';  //div显示 this.index是当前div 即div[0]之类的
+           };
+        };
+      };
+</script>
+</body>
+</html>

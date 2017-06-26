@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <li tapmode="active" class="active" onclick="randomSwitchBtn(this,'ordering',0)">
+        <a class="bottom_btn ordering">订餐</a>
+    </li>
+    <li tapmode="active" onclick="randomSwitchBtn(this,'menu',1)">
+        <a class="bottom_btn menu ">菜单</a>
+    </li>
+    <li tapmode="active" onclick="randomSwitchBtn(this,'wealfare',2)">
+        <a class="bottom_btn welfare ">福利</a>
+    </li>
+    <li tapmode="active" onclick="randomSwitchBtn(this,'mine',3)">
+        <a class="bottom_btn mine ">我的</a>
+    </li>
+    <script type="text/javascript">
+    function randomSwitchBtn(obj, name, index) {
+                  if(index == 3){
+                  	alert(index);
+                  }
+                  console.log(name);
+    }
+    </script>
+</body>
+
+</html>
