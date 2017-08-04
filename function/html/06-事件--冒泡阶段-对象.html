@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>阻止冒泡 target currentTarget</title>
+
+    <style>
+        div{
+            position: absolute;
+        }
+        #div1{
+            width: 300px;
+            height: 300px;
+            background: red;
+        }
+        #div2{
+            width: 200px;
+            height:200px;
+            background: blue;
+        }
+        #div3{
+            width:100px;
+            height:100px;
+            background: salmon;
+            left:400px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+
+<script>
+    //这种绑定方式，走的冒泡阶段。
+
+    var oDiv1=document.getElementById("div1");
+    oDiv1.onclick=function(event){
+        alert(event.target.id);
+    }
+    var oDiv2=document.getElementById("div2");
+	oDiv2.onclick = null;
+    oDiv2.onclick=function(event){
+        event=event||window.event;
+        //阻止冒泡
+        if(event.stopPropagation){
+            //非ie 标准
+            event.stopPropagation();
+        }else{
+            //ie9 之前。
+            event.cancelBubble=true;
+        }
+        alert(event.target.id);
+    }
+	oDiv2.onclick = null;
+    var oDiv3=document.getElementById("div3");
+    oDiv3.onclick=function(event){
+        alert(event.target.id);
+    }
+
+</script>
+</body>
+</html>

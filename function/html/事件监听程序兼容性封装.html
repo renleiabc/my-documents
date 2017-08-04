@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+
+<title></title>
+<style type="text/css"/>
+*{ 
+            margin: 0;
+            padding:0;
+        
+}
+#div1{
+            width: 400px;
+            height: 400px;
+           background:red;
+        }
+		
+		
+#div2{
+            width: 300px;
+            height: 300px;
+           background:yellow;
+        }
+		
+		
+#div3{
+            width: 200px;
+            height: 200px;
+           background:lime;
+        }
+</style>
+<script>
+</script>
+</head>
+
+
+
+<body>
+<input id = "bt1" type = "button" value="删除"/>
+<div id = "div1">
+	<div id = "div2">
+	  <div id = "div3"></div>
+	</div>
+</div>
+<script>
+var oDiv1=document.getElementById("div1");
+var oDiv2=document.getElementById("div2");
+var oDiv3=document.getElementById("div3");
+var  oBt =document.getElementById("bt1");
+
+function addEventListener(dom,type,fn){
+if(dom.addEventListener)
+  {
+  dom.addEventListener(type,fn,false)
+}else{
+ dom.attachEvent("on"+type,fn)
+
+ }
+}
+function fn2(){
+ alert(1);
+}
+addEventListener(oDiv1,"click",fn2);
+addEventListener(oDiv2,type,fn2);
+//封装的两个方法 1添加监听 2 移除监听
+//添加绑定事件
+//冒泡事件
+
+function addEventListener(dom,type,fn){
+if(dom.addEventListener)
+  {
+  dom.addEventListener(type,fn,false)
+}else{
+ dom.attachEvent("on"+type,fn)
+
+ }
+}
+function fn2(){
+ alert(1);
+}
+addEventListener(oDiv1,type,fn2);
+addEventListener(oDiv2,type,fn2);
+//2 解除事件的绑定
+function removeEventListener(dom,type,fn){
+  if(dom.removeEventListener){
+   dom.removeEventListener(type,fn,false);
+  }else{
+  dom.detachEvent("on"+type,fn);
+  }
+
+}
+function fn2(){
+ alert(1);
+}
+removeEventListener(oDiv1,type,fn2);
+
+</script>
+</body>
+</html>

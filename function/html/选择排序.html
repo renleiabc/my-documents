@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选择排序</title>
+</head>
+<body>
+<script>
+    /*
+     还是先来看看选择排序的思想。
+     选择排序的思想非常直接，不是要排序么？
+     那好，我就从所有序列中先找到最小的，
+     然后放到第一个位置。
+     之后再看剩余元素中最小的，放到第二个位置……
+     以此类推，就可以完成整个的排序工作了。
+     可以很清楚的发现，选择排序是固定位置，找元
+     素。
+     */
+    var arr=[2,1,-2,3,-5,7];
+    //最后一个位置放最大的数或者最小的数，
+    // 不需要再进行比较，故而是arr.length-1;
+    //外层循环决定循环的次数，内层循环决定循环的方式
+    //指的比较是arr[i]和arr[j]比较；
+    // 而arr[i]始终是和后面的数进行比较故而j=i+1;
+    for(i=0;i<arr.length-1;i++) {
+        for (j = i + 1; j < arr.length; j++) {
+            if (arr[j] > arr[i]) {
+                var p = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = p;
+            }
+        }
+    }
+    alert(arr);
+function fn(json){
+        json.sort(function(a,b){
+            return b.old - a.old
+        });
+        return json
+
+    }
+</script>
+
+</body>
+</html>

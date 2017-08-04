@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>encapsulationOfFunctions</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //网址https://segmentfault.com/a/1190000010225928
+    //2-1去除字符串空格
+    //去除空格  type 1-所有空格  2-前后空格  3-前空格 4-后空格
+    /**
+     * [trim description]
+     * @Author    [renlei]
+     * @DateTime  2017-08-04T15:29:17+0800
+     * Typecho Blog Platform
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     * @param     [param]
+     * @param     {[type]}                 str  [description]
+     * @param     {[type]}                 type [description]
+     * @return    {[type]}                      [description]
+     */
+    function trim(str, type) {
+        switch (type) {
+            case 1:
+                return str.replace(/\s+/g, "");
+            case 2:
+                return str.replace(/(^\s*)|(\s*$)/g, "");
+            case 3:
+                return str.replace(/(^\s*)/g, "");
+            case 4:
+                return str.replace(/(\s*$)/g, "");
+            default:
+                return str;
+        }
+    }
+    var str1 = " ss bb "
+    console.log(str1.length)
+    console.log(trim(str1, 1).length)
+    console.log(trim(str1, 2).length)
+    console.log(trim(str1, 3).length)
+    console.log(trim(str1, 4)[0])
+    /*type
+    1:首字母大写
+    2：首页母小写
+    3：大小写转换
+    4：全部大写
+    5：全部小写
+     * */
+    //changeCase('asdasd',1)
+    //Asdasd
+
+    //toLowerCase() 方法用于把字符串转换为小写。
+    //toUpperCase() 方法用于把字符串转换为大写。
+    /**
+     * [changeCase description]
+     * @Author    [renlei]
+     * @DateTime  2017-08-04T16:17:07+0800
+     * Typecho Blog Platform
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     * @param     [param]
+     * @param     {[type]}                 str  [description]
+     * @param     {[type]}                 type [description]
+     * @return    {[type]}                      [description]
+     */
+    function changeCase(str, type) {
+        function ToggleCase(str) {
+            var itemText = "";
+            str.split("").forEach(function(item) {
+                if (/^([a-z]+)/.test(item)) {
+                    itemText += item.toUpperCase();
+                } else if (/^([A - z]+)/.test(item)) {
+                    itemText += item.toLowerCase();
+                }
+            })
+            return itemText;
+        }
+        switch (type) {
+            case 1:
+                return str.replace(/^(\w)(\w+)/, function(v, v1, v2) {
+                    return v1.toUpperCase() + v2.toLowerCase();
+                });
+            case 2:
+                return str.replace(/^(\w)(\w+)/, function(v, v1, v2) {
+                    return v1.toLowerCase() + v2.toUpperCase();
+                });
+            case 3:
+                return ToggleCase(str);
+            case 4:
+                return str.toUpperCase();
+            case 5:
+                return str.toLowerCase();
+            default:
+                return str;
+        }
+    }
+    console.log(changeCase('asdasd', 1) + "=" + changeCase('asdasd', 2) + "=" + changeCase('AAAA', 3) + "=" + changeCase('asdasd', 4) + "=" + changeCase('asdasd', 5))
+    //repeatStr(str->字符串, count->次数)
+    //repeatStr('123',3)
+    //"123123123"
+    /**
+     * [repeatStr description]
+     * @Author    [renlei]
+     * @DateTime  2017-08-04T16:58:25+0800
+     * Typecho Blog Platform
+     * @copyright [copyright]
+     * @license   [license]
+     * @version   [version]
+     * @param     [param]
+     * @param     {[type]}                 str   [description]
+     * @param     {[type]}                 count [description]
+     * @return    {[type]}                       [description]
+     */
+    function repeatStr(str, count) {
+        var text = "";
+        for (var i = 0; i < count; i++) {
+            text += str;
+        }
+        return text;
+    }
+    console.log(repeatStr("AB", 5));
+
+
+    ////字符串替换(字符串,要替换的字符,替换成什么)
+    function replaceAll(str, AFindText, ARepText) {
+        var index;
+        index = str.indexOf(AFindText);
+        if (index == -1) {
+            alert("not");
+            return false;
+        } else {
+            raRegExp = new RegExp(AFindText, "g");
+            return str.replace(raRegExp, ARepText);
+        }
+    }
+
+    console.log(replaceAll("sdadsa", "g", "F"))
+    </script>
+</body>
+
+</html>

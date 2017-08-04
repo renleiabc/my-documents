@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+    function switchDay (day) {
+        switch (day) {
+            case "a":
+                x = "Today it's Sunday";
+                break;
+            case "b":
+                x = "Today it's Monday";
+                break;
+            case "c":
+                x = "Today it's Tuesday";
+                break;
+            case 3:
+                x = "Today it's Wednesday";
+                break;
+            case 4:
+                x = "Today it's Thursday";
+                break;
+            case 5:
+                x = "Today it's Friday";
+                break;
+            case 6:
+                x = "Today it's Saturday";
+                break;
+        }
+        return x;
+    }
+    console.log(switchDay("a"))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>原生的方法添加class</title>
+    <style type="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .demo {
+        background-color: red;
+        width: 1000px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    .demo1 {
+        background: lime;
+    }
+
+    .sublie {
+        width: 200px;
+        height: 200px;
+    }
+
+    .demo .child {
+        width: 100px;
+        height: 50px;
+        background: red;
+        margin-left: 10px;
+        display: inline-block;
+    }
+    .childLeft{
+        width: 200px;
+        height: 100px;
+        margin-left: auto;
+       display: inline-block;
+        background: blue;
+    }
+    .sublie{
+        width: 100%;
+    }
+    /*垂直居中*/
+.vertical {
+    display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+    display: -moz-box; /* Firefox 17- */
+    display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+    display: -moz-flex; /* Firefox 18+ */
+    display: -ms-flexbox; /* IE 10 */
+    display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+    /* 09版 */
+    -webkit-box-align: center;
+    /* 12版 */
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="demo" class="demo vertical">
+        <div class="child">
+            原生的方法添加class
+            <div class="childNodes"></div>
+        </div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="child"></div>
+        <div class="childLeft"></div>
+    </div>
+    <div class="sublie">
+    </div>
+    <script type="text/javascript">
+    function hasClass(elements, cName) {
+        return !!elements.className.match(new RegExp("(\\s|^)" + cName + "(\\s|$)")); // ( \\s|^ ) 判断前面是否有空格 （\\s | $ ）判断后面是否有空格 两个感叹号为转换为布尔值 以方便做判断
+    };
+
+    function addClass(elements, cName) {
+        if (!hasClass(elements, cName)) {
+            elements.className += " " + cName;
+        };
+    };
+
+    function removeClass(elements, cName) {
+        if (hasClass(elements, cName)) {
+            elements.className = elements.className.replace(new RegExp("(\\s|^)" + cName + "(\\s|$)"), " "); // replace方法是替换
+        };
+    };
+    //获取所有子元素节点
+    function getChildren(node) {
+        var arrChild = [];
+        //把元素阶段放入到 数组 arrChild中。最后返回（return ） 这个数组 arrChild
+        var children = node.childNodes; //包含了 元素节点 和文本节点的 数组。
+        for (var i = 0; i < children.length; i++) {
+            if (children[i].nodeType == 1) { //元素节点
+                arrChild.push(children[i]);
+            }
+        }
+        return arrChild;
+    }
+    var dom = document.querySelector(".demo");
+    var sublie = document.querySelector(".sublie");
+    sublie.appendChild(dom);
+    console.log(dom);
+    addClass(dom, "demo1");
+    console.log(sublie)
+        //removeClass(dom,"demo1");
+    console.log(getChildren(dom)[0].firstChild.nodeValue) //getChildren(dom)[0].innerText);
+
+
+    console.log(typeof getChildren(dom)[0].innerText);
+    console.log(typeof getChildren(dom)[0].firstChild.nodeValue);
+    </script>
+</body>
+
+</html>

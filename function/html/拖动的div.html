@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖动的div</title>
+
+    <style type="text/css">
+        /*
+    1.页面有输入框、有一个div，一个按钮；
+    在输入框中输入文字后，点击按钮在div中  追加  显示
+    输入框中的文字，并清空输入框。
+    输入框、按钮、div 能整体拖动！
+    */
+        *{
+            margin:0;
+            padding:0
+        }
+        #div1{
+            width:200px;
+            position:absolute;
+            cursor: pointer;
+            border:1px #000 solid;
+        }
+       #div2{
+           width:200px;
+           height:100px;
+           background:lime;
+          }
+        #txt1{
+            width:150px;
+            height:20px;
+
+        }
+        #txt2{
+            width:30px;
+            height:20px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id ="div1">
+        <div id ="div2"></div>
+        <input  type="text" id="txt1"/>
+        <input type="button" value="按钮" id="txt2" onclick="cal()"/>
+    </div>
+    <input type = "button" value="下一页" id="btn"/>
+<script>
+    function $(idname){
+        return document.getElementById(idname);
+    }
+    var oBtn = $("btn")
+    window.onload = function () {
+        oBtn.onclick = function(){
+            window.location.href = "www.baidu.com";//修改window.href地址，可以显示心页面；
+        }
+    }
+    var  oDiv1 = $("div1");
+    oDiv1.onmousedown = function(evt){
+        evt = evt || window.event;
+        var offsetx= evt.offsetX;
+        var offsety = evt.offsetY;
+        document.onmousemove = function(event){
+            event = event || window.event
+            oDiv1.style.top = event.clientY-offsetx+"px";
+            oDiv1.style.left = event.clientX-offsety+"px";
+        }
+
+    }
+    document.onmouseup = function() {
+        if(oDiv1.offsetLeft<100){
+            oDiv1.style.left = 10-oDiv1.offsetWidth +"px";
+        }
+        if(oDiv1.offsetTop<100){
+            oDiv1.style.top = 10- oDiv1.offsetHeight + "px";
+        }
+        var clientWidth=document.documentElement.clientWidth||document.body.clientWidth;
+        if(oDiv1.offsetLeft>clientWidth-oDiv1.offsetWidth-100){
+            oDiv1.style.left=clientWidth-oDiv1.offsetWidth+190+"px";
+            console.log(oDiv1.offsetWidth);
+        }
+        var clientHeight=document.documentElement.clientHeight||document.body.clientHeight;
+        if(oDiv1.offsetTop>clientHeight-oDiv1.offsetHeight-100){
+            oDiv1.style.top=clientHeight-oDiv1.offsetHeight+110+"px";
+            console.log(oDiv1.offsetHeight);
+        }
+        document.onmousemove = null;
+    }
+    function cal(){
+        var  oTxt = $("txt1");
+        var  oDiv2 = $("div2");
+        oDiv2.innerHTML = oTxt.value;
+        oTxt.value = "";
+    }
+</script>
+</body>
+</html>

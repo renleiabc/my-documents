@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value=" one second" class="btn" data-value="1000">
+    <input type="button" value="two second" class="btn" data-value="2000">
+    <input type="button" value="three second" class="btn" data-value="3000">
+    <input type="button" value="thou second" class="btn" data-value="4000">
+    <script type="text/javascript">
+    //向函数可以辅助向现有URL的末尾添加查询字符串参数
+    function addURLParam(url, name, value) {
+        url += (url.indexOf("?") == -1 ? "?" : "&");
+        url += encodeURIComponent(name) + "=" + encodeURIComponent(value);
+        return url;
+    }
+    var oBtn = document.getElementsByClassName("btn");
+    for (var i = 0; i < oBtn.length; i++) {
+        oBtn[i].onclick = function() {
+            console.log(this)
+            var url = window.location.href;
+            var value = this.getAttribute("data-value");
+            window.location.href = addURLParam(url, "name", value)
+        }
+
+    }
+    var obj = {};
+    /* if   (typeOf(x)   ==   "undefined")
+2、if   (typeOf(x)   !=   "object")
+3、if(!x) */
+if(typeof(obj) == "undefined"){
+
+
+}else{
+	console.log(0);
+}
+  </script>
+</body>
+
+</html>

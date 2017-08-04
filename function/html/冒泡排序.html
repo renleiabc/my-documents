@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+</head>
+<body>
+<script>
+    var arr=[123,124,6456,1,21,33,64,2313];
+    alert(arr);
+    /*
+     冒泡排序的思想很简单，就是以此比较相邻的元素大小，将
+     小的前移，大的后移，就像水中的气泡一样，
+     最小的元素经过几次移动，会最终浮到水面上。
+     */
+      //循环一遍，所有的数字都冒泡一次；
+    for(j=0; j<arr.length; j++){
+        //先是每相邻两个进行比较；要是前一个比后一个答大的话，交换位置；
+        //优化：已经冒泡的，排好顺序的不在进行比较；
+        //循环结束的条件为i>j;
+        // for(i=arr.length-1; i>0 ;i--)
+        for(i=arr.length-1; i>j ;i--){
+            if(arr[i]>arr[i - 1]){
+                var p = arr[i];
+                arr[i] = arr[i-1];
+                arr[i-1] = p;
+            }
+        }
+    }
+    alert(arr);
+    for(j=0;j<arr.length;j++) {
+        for (i = 0; i < arr.length - 1-j; i++) {
+            if (arr[i] > arr[i - 1]) {
+                var p = arr[i];
+                arr[i] = arr[i - 1];
+                arr[i - 1] = p;
+            }
+        }
+    }
+    alert(arr);
+/*  */
+</script>
+</body>
+</html>

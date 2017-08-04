@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>checkMark</title>
+</head>
+<style type="text/css" media="screen">
+.chk_1,
+.chk_2,
+.chk_3,
+.chk_4 {
+    display: none;
+}
+
+.checkMark,
+.checkbox {
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+}
+
+.checkMark span,
+.checkbox span {
+    height: 30px;
+    line-height: 30px;
+    display: block;
+    float: left;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+
+/*复选框样式*/
+
+.chk_1 + label {
+    background-color: #FFF;
+    border: 1px solid #C1CACA;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    border-radius: 5px;
+    display: block;
+    position: relative;
+    margin-right: 5px;
+    cursor: pointer;
+    float: left;
+    top: 5px;
+}
+
+.chk_1 + label:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chk_1:checked + label:after {
+    content: '\2713';
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    color: #579cc3;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4em;
+    padding: 1px 0 0 0;
+    vertical-align: text-top;
+}
+
+.checkboxHelf {
+    background-color: #FFF;
+    border: 1px solid #C1CACA;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    margin-right: 30px;
+    cursor: pointer;
+    top: 5px;
+}
+
+.checkboxHelf:after {
+    content: '\2013 ';
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    color: #579cc3;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4em;
+    padding: 1px 0 0 0;
+    vertical-align: text-top;
+}
+
+
+/* 滑动开关 */
+
+.chk_3 + label {
+    background-color: #fafbfa;
+    padding: 4px;
+    border-radius: 50px;
+    position: relative;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    width: 30px;
+    height: 15px;
+    cursor: pointer;
+    float: left;
+    display: block;
+    margin-top: 2px;
+}
+
+.chk_3 + label:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    -webkit-transition: box-shadow 0.1s ease-in;
+    transition: box-shadow 0.1s ease-in;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    box-shadow: inset 0 0 0 0 #eee, 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
+.chk_3 + label:before {
+    content: ' ';
+    position: absolute;
+    background: white;
+    top: 2px;
+    left: 0px;
+    z-index: 999999;
+    width: 20px;
+    -webkit-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
+    height: 20px;
+    border-radius: 100px;
+    box-shadow: 0 3px 1px rgba(0, 0, 0, 0.05), 0 0px 1px rgba(0, 0, 0, 0.3);
+}
+
+.chk_3:active + label:after {
+    box-shadow: inset 0 0 0 20px #eee, 0 0 1px #eee;
+}
+
+.chk_3:active + label:before {
+    width: 20px;
+}
+
+.chk_3:checked:active + label:before {
+    width: 20px;
+    left: 20px;
+}
+
+.chk_3 + label:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chk_3:checked + label:before {
+    content: ' ';
+    position: absolute;
+    left: 18px;
+    border-radius: 100px;
+}
+
+.chk_3:checked + label:after {
+    content: ' ';
+    font-size: 1.5em;
+    position: absolute;
+    background: #358eba;
+    box-shadow: 0 0 1px #358eba;
+}
+</style>
+
+<body>
+    <!-- 滑动开关 -->
+    <div class="checkMark">
+        <input type="checkbox" id="checkbox_c1" class="chk_3" checked />
+        <label for="checkbox_c1"></label>
+        <span>dada</span>
+    </div>
+    <!--  复选框样式 -->
+    <div class="checkbox">
+        <input type="checkbox" id="checkbox_a1" class="chk_1" checked />
+        <label for="checkbox_a1"></label>
+        <span>sdasd</span>
+    </div>
+</body>
+
+</html>

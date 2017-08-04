@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    //高效去除数组中的重复项函数封装；
+    /* 在基本数据类型中undefined == null > true
+	在数组array中若是array[i]中索引的下标i大于数组的长度array.length所得到数值是undefined;
+	在对象object中，若是对象object中不存在属性index，
+	那么object[index]得到的值是undefined;
+      !undefined得到结果是true；
+     */
+    function unique(arr) {
+        var result = [],
+            hash = {};
+        //
+        for (var i = 0, elem;
+            (elem = arr[i]) != null; i++) {
+            if (!hash[elem]) {
+                result.push(elem);
+                hash[elem] = true;
+            }
+        }
+        return result;
+    }
+    var obj = {
+        name: 'renlei'
+    }
+    var arr1 = [1, 2, 2, 3, 4, 4, "a", "a", "r", function arr() {}, function arr() {}, obj, obj]
+        //console.log(JSON.stringify(unique(arr)));
+        /* 思路： 1.创建一个新的数组存放结果 2.创建一个空对象 3.for循环时，每次取出一个元素与对象进行对比，如果这个元素不重复，则把它存放到结果数组中，同时把这个元素的内容作为对象的一个属性，并赋值为1，存入到第2步建立的对象中。 说明：至于如何对比，就是每次从原数组中取出一个元素，然后到对象中去访问这个属性，如果能访问到值，则说明重复。代码如下:
+         */
+    Array.prototype.unique3 = function() {
+        var res = [];
+        var json = {};
+        for (var i = 0; i < this.length; i++) {
+            if (!json[this[i]]) {
+                res.push(this[i]);
+                json[this[i]] = 1;
+            }
+        }
+        return res;
+    }
+    var arr = [112, 112, 34, '你好', 112, 112, 34, '你好', 'str', 'str1'];
+    console.log(arr1.unique3());
+    if (!2) {
+        console.log(2);
+    } else {
+        console.log('!2')
+    }
+    var objs = {
+        name: true,
+        old: 24
+    }
+    console.log(objs["name"], !objs["worker"]);
+    console.log(!objs["worker"]);
+    var array = [1, 2, 3]
+    console.log(array[2] != null)
+    console.log(!undefined);
+    var car = null;
+    //car.old = 3;
+    var objN = {};
+    objN.old = 2;
+    console.log(car == objN);
+    console.log(null == null);
+    if(undefined){
+    	console.log(1)
+    }else{
+    	console.log(0)
+    }
+    </script>
+</body>
+
+</html>
