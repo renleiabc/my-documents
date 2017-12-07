@@ -1,0 +1,63 @@
+[
+  {
+    "name": "测试票",
+    "mainType": 1,
+    "cityCode": 1,
+    "ticketType": 1,
+    "issuer": 2,
+    "mediaType": 1,
+    "manufacture": 1,
+    "validity": 5,
+    "defaultBalance": 2000,
+    "minEntryValue": 2000,
+    "overTime": 3500,
+    "voiceFileName": "1.mp3",
+    "lightFlashCount": 5,
+    "lightOnDuration": 5,
+    "lightOffDuration": 5,
+    "lightColor": 5,
+    "buzzerFlashCount": 5,
+    "buzzerOnDuration": 5,
+    "buzzerOffDuration": 5,
+    "balanceType": 5,
+    "discountPeriodDiscount": [
+      {
+        "discountPeriod": "08:00:00-10:00:00",
+        "discount": 0.2
+      }
+    ],
+    "testFlag": 1,
+    "checkValidityOnEntry": 1,
+    "checkValidityOnExit": 1,
+    "checkSequenceOnEntry": 1,
+    "checkSequenceOnExit": 1,
+    "checkBalanceOnEntry": 1,
+    "checkOverTravel": 1,
+    "checkTimeout": 1,
+    "enableDiscount": 1,
+    "enableScore": 1,
+    "enableRefund": 1,
+    "rwLocation": 0,
+    "recycleMode": 0,
+    "overdraftLimit": 0,
+    "maxAddValue": 0,
+    "timeoutUpdateFee": 0,
+    "overTravelUpdateFee": 0,
+    "overTravelAndTimeoutFee": 0,
+    "blacklistUnlockFee": 0,
+    "enterUpdateFee": 0,
+    "exitUpdateFee": 0,
+    "enableUpdate": [],
+    "validityExtensionFee": 0,
+    "transferDiscountValue": 0,
+    "transferDelay": 0,
+    "enableLimit": 0,
+    "unlimitSaleStations": [
+      101,
+      102
+    ],
+    "foregift": 0,
+    "overCalculateFlag": 1,
+    "ticketPriceType": 1
+  }
+]

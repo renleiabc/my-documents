@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>在浏览器的多个tab页中共享sessionStorage</title>
+    <script type="text/javascript" src="jquery.3.1.2.min.js"></script>
+</head>
+
+<body>
+    <div id="session-data-panel">Session:No Session</div>
+    <button id="create-session-btn">
+        Click create a random session
+    </button>
+    <script type="text/javascript">
+    /* 三者都是一样的，
+    最完整的写法是：$(document).ready(function(){})
+    ready() 函数仅能用于当前文档，因此无需选择器。
+    所以document选择器可以不要，那么就可以写成：
+    $().ready(function(){})
+    最后$的默认事件就是ready，所以，ready也可以省略，写成：
+    $(function(){});
+     */
+    $().ready(function() {
+        if (!sessionStorage.getItem('sessionValue')) {
+            //Date.now() 方法返回自1970年1月1日 00:00:00 UTC到当前时间的毫秒数
+            localStorage.setItem('getSession', Date.now());
+        } else {
+            $('#session-data-panel').text('Session:' + sessionStorage.getItem('sessionValue'));
+        }
+        window.addEventListener('storage', function(event) {
+            if (!event.newValue) {
+                return;
+            }
+            if (event.key == 'getSession') {
+                localStorage.setItem('storageSessionData', sessionStorage.getItem('sessionValue'));
+                localStorage.removeItem('storeSessionData');
+            };
+            if (event.key == 'storageSessionData') {
+                sessionStorage.setItem('sessionValue', evnet.newValue);
+                $('#session-data-panel').text('Session:' + sessionStorage.getItem('sessionValue'));
+                localStorage.removeItem('getSassion');
+            };
+            if (event.key == 'updateSession') {
+                sessionStorage.setItem('sessionValue', event.newValue);
+                $("#session-data-panel").text("Session:" + sessionStorage.getItem("sessionValue"));
+                localStorage.removeItem('updateSession');
+            }
+        });
+        $("#create-session-btn").click(function() {
+            var t = Math.random() * 100;
+            sessionStorage.setItem("sessionValue", t);
+            $("#session-data-panel").text("Session:"+t);
+            localStorage.setItem("updateSession", t);
+        });
+    })
+    </script>
+</body>
+
+</html>

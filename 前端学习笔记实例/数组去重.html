@@ -1,23 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <title>Document</title>
 </head>
+
 <body>
-<script type="text/javascript">
-	function unique(arr){
-		var result=[],hash={};
-		for(var i=0,elem;(elem = arr[i]) != null;i++){
-			if(!hash[elem]){
-				result.push(elem);
-				hash[elem] = true;
-			}
-		}
-		return result;
-	}
-	var arr = [1,1,222,222,3,"2","2","a","a"];
-	console.log(unique(arr));
-</script>
+    <script type="text/javascript">
+    function unique(arr) {
+        var result = [],
+            hash = {};
+        for (var i = 0, elem;(elem = arr[i]) != null; i++) {
+            if (!hash[elem]) {
+                result.push(elem);
+                hash[elem] = true;
+            }
+        }
+        return result;
+    }
+    var arr = [1, 1, 222, 222, 3, "2", "2", "a", "a"];
+    //console.log(unique(arr));
+    var arr1 = [{ "name": "2017-08-02 " }, { "name": "2017-08-02 " }, { "name": "2017-08-07 " }, { "name": "2017-08-28 " }, { "name": "2017-08-29 " }, { "name": "2017-08-29 " }, { "name": "2017-08-29 " }, { "name": "2017-08-29 " }, { "name": "2017-08-29 " }, { "name": "2017-08-29 " }, { "name": "2017-08-29 " }, { "name": "2017-08-29 " }, { "name": "2017-08-29 " }, { "name": "2017-09-11 " }, { "name": "2017-09-11 " }, { "name": "2017-09-11 " }, { "name": "2017-09-11 " }, { "name": "2017-09-11 " }, { "name": "2017-09-11 " }, { "name": "2017-09-11 " }, { "name": "2017-09-11 " }, { "name": "2017-09-11 " }, { "name": "2017-09-11 " }, {
+        "name": "2017-10-27 "
+    }];
+    /*function uniqueObj(arr){
+    	var result=[],hash={};
+    	for(var i=0,elem;(elem = arr[i]) != null;i++){
+    		for (var key in arr[i]) {
+    			Things[i]
+    		}
+    		if(!hash[elem]){
+    			result.push(elem);
+    			hash[elem] = true;
+    		}
+    	}
+    	return result;
+    }
+    console.log(uniqueObj(arr1)); */
+    /* 把目标数组arr的元素值和键的位置调换 自动就把重复的元素给删除掉了，调换后的样子：array('qiang'=>1,'ming'=>1,'tao'=>1) */
+    var student = ['qiang', 'ming', 'tao', 'li', 'liang', 'ming', 'tao', 'li', 'liang', 'you', 'qiang', 'tao', "qiang"];
+
+    function unique1(arr) {
+        var tmp = [];
+        for (var m in arr) {
+            //console.log(arr[m]);
+            //console.log(m);
+            tmp[arr[m]] = 1;
+        }
+        // console.log(JSON.stringify(tmp))
+        //再把键和值的位置再次调换
+        var tmparr = [];
+        for (var n in tmp) {
+            //console.log(n)
+            tmparr.push(n);
+        }
+        return tmparr;
+    }
+    //console.log(JSON.stringify(unique1(student)));
+    function uniquelObj(arr) {
+        var tmp = [];
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i])
+            for (var key in arr[i]) {
+                console.log(arr[i][key]);
+                tmp[arr[i][key]] = 1;
+            }
+        }
+        var tmpArr = [];
+        for(var n in tmp){
+        	console.log(n)
+        	var obj = {};
+        	obj.name = n;
+        	tmpArr.push(obj);
+        }
+        return tmpArr;
+    }
+    console.log(JSON.stringify(uniquelObj(arr1)));
+    </script>
 </body>
+
 </html>

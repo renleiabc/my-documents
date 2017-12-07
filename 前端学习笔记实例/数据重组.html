@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数据重组</title>
+    <style type="text/css" media="screen">
+    [class^="test"] {
+        background: #ffff00;
+    }
+    [class^="inner"]{
+        width: 100px;
+        height: 100px;
+        margin-bottom: 20px;
+        background-color: red;
+    }
+    .text{
+        background-color: lime;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="test-2">第三个 div 元素。</div>
+    <p class="test-234234">这是段落中的文本。</p>
+    <div class="inner-2 text"></div>
+    <div class="inner-3"></div>
+    <script type="text/javascript">
+    var arr = [{ "name": "2017080208104", "time": "2017-08-02 " }, { "name": "2017080208104", "time": "2017-08-02 " }, { "name": "2017080708103", "time": "2017-08-07 " }, { "name": "2017082808100", "time": "2017-08-28 " }, { "name": "2017082908100", "time": "2017-08-29 " }, { "name": "2017082908100", "time": "2017-08-29 " }, { "name": "2017082908100", "time": "2017-08-29 " }, { "name": "2017082908101", "time": "2017-08-29 " }, { "name": "2017082908101", "time": "2017-08-29 " }, { "name": "2017082908101", "time": "2017-08-29 " }, { "name": "2017082908104", "time": "2017-08-29 " }, { "name": "2017082908104", "time": "2017-08-29 " }, { "name": "2017082908104", "time": "2017-08-29 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017102708100", "time": "2017-10-27 " }];
+    var data = [];
+    for (var i = 0; i < arr.length; i++) {
+        // console.log(arr[i])
+        if (!arr[i].visited) {
+            data.push(arr[i]);
+
+            for (var j = 1; j < arr.length - 1; j++) {
+                if (arr[i].name == arr[j].name &&
+                    arr[i].time == arr[j].time) {
+                    arr[j].visited = true;
+                }
+            }
+        }
+
+    }
+
+    for (var i = 0; i < data.length; i++) {
+        for (key in data[i]) {
+            if (key == "visited") {
+                delete data[i][key];
+            }
+        }
+    }
+    console.log(JSON.stringify(data))
+    //对数组里面完全相同的数据进行删除
+    function dataReorganization(arr) {
+        var data = [];
+        for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i])
+            if (!arr[i].visited) {
+                data.push(arr[i]);
+                for (var j = 1; j < arr.length - 1; j++) {
+                    if (arr[i].name == arr[j].name &&
+                        arr[i].time == arr[j].time) {
+                        arr[j].visited = true;
+                    }
+                }
+            }
+        }
+        //去除元素里面的visited
+        for (var i = 0; i < data.length; i++) {
+            for (key in data[i]) {
+                if (key == "visited") {
+                    delete data[i][key];
+                }
+            }
+        }
+        return data;
+    }
+    var data = dataReorganization(arr);
+    console.log(JSON.stringify(data));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function Parent(name) {
+        this.name = name;
+        this.sayParent = function() {
+            alert("Parent:" + this.name);
+        }
+    }
+
+    function Child(name, age) {
+        this.tempMethod = Parent;
+        this.tempMethod(name);
+        this.age = age;
+        this.sayChild = function() {
+            alert("Child:" + this.name + "age:" + this.age);
+        }
+    }
+
+    var parent = new Parent("江剑臣");
+    parent.sayParent(); //输出：“Parent:江剑臣”
+    var child = new Child("李鸣", 24); //输出：“Child:李鸣 age:24”
+    child.sayChild();
+    </script>
+</body>
+
+</html>

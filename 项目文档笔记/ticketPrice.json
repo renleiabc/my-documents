@@ -1,0 +1,38 @@
+{
+  "prices": {
+    "1": {
+      "name": "普通市民卡",
+      "prices": [
+        {
+          "start": 1,
+          "end": 101,
+          "price": 270
+        },
+        {
+          "start": 1,
+          "end": 101,
+          "price": 500
+        }
+      ]
+    },
+    "2": {
+      "name": "老年票",
+      "prices": [
+        {
+          "start": 1,
+          "end": 101,
+          "price": 200
+        },
+        {
+          "start": 1,
+          "end": 101,
+          "price": 230
+        }
+      ]
+    }
+  },
+  "colors": {
+    "230": "#fff00f",
+    "270": "#ffffff"
+  }
+}

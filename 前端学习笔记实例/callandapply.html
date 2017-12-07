@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS中的call()和apply()方法</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function add(a, b) {
+        return a + b;
+    }
+
+    function sub(a, b) {
+        return a - b;
+    }
+    var num = sub.call(add, 3, 1); //用sub来替换add，进行函数执行等价与sub(3,1)
+    console.log(num);
+    var num1 = add.call(sub, 3, 1); //用add来替换sub，进行函数执行等价与add(3,1)
+    console.log(num1);
+    var num2 = sub.apply(add, [3, 1]);
+    console.log(num2);
+    var num3 = add.apply(sub, [4, 5]);
+    console.log(num3);
+    var obj = {
+        add: function(a, b) {
+            return a + b;
+        },
+        sub: function(a, b) {
+            return a - b;
+        }
+    }
+    var tar = {
+        mul: function(a, b) {
+            return a * b;
+        },
+        div: function(a, b) {
+            return a / b;
+        }
+    }
+    obj.add.call(tar);
+    tar.mul.call(obj);
+    console.log(tar.mul(3, 1));
+
+    function Animal(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Animal.prototype.showName = function(names) {
+        return names;
+    }
+     var animal = new Animal();
+
+    function Cat(name) {
+        Animal.call(this, name);
+    };
+
+/* 在访问对象属性的时候，原型链首先在构造函数当中寻找，如果没有找到继续向下寻找直到 */
+    Cat.prototype = animal;
+    Cat.prototype.action = function() {
+        return "I am renlei";
+    }
+    var cat = new Cat('black cat');
+    cat.showName();
+
+    console.log(cat.name);
+    console.log(cat.constructor);
+    /* 在闭包中使用 this 对象也可能会导致一些问题。我们知道, this 对象是在运行时基于函数的执
+行环境绑定的:在全局函数中, this 等于 window ,而当函数被作为某个对象的方法调用时, this 等
+于那个对象。 */
+    var name = "The window";
+    var object = {
+        name: "My object",
+        getNameFunc: function() {
+            var that = this;
+            return function() {
+                return that.name;
+            }
+        }
+    }
+    console.log(object.getNameFunc()());
+    var two = {
+    	name:"twoObject",
+    	twoGetName:function (){
+    		return this.name;
+    	}
+    }
+    console.log(two.twoGetName());
+    </script>
+</body>
+
+</html>
