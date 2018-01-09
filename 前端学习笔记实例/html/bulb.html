@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>buld</title>
+    <style type="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        background: #000;
+    }
+
+    .box {
+        width: 200px;
+        padding-top: 30px;
+        padding-left: 30px;
+        margin: 0 auto;
+        margin-top: 50px;
+        overflow: hidden;
+    }
+
+
+    .red {
+        width: 15px;
+        height: 20px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        background:red;
+        -webkit-animation: red 1s infinite alternate;
+        -moz-animation: red 1s infinite alternate;
+         -ms-animation: red 1s infinite alternate;
+        -o-animation: red 1s infinite alternate;
+        animation: red 1s infinite alternate;
+        position: absolute;
+        left: 50%;
+        top: 10%;
+    }
+
+    @keyframes red {
+        from {
+            box-shadow: none;
+        }
+        to {
+            box-shadow: 0 -10px 10px red,
+            0 -10px 20px red,
+            0 -10px 30px red,
+            0 -10px 60px red;
+        }
+    }
+
+    .yellow {
+        width: 15px;
+        height: 20px;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        background: yellow;
+        -webkit-animation: yellow1 1s infinite alternate;
+        -moz-animation: yellow1 1s infinite alternate;
+        animation: yellow1 1s infinite alternate;
+        position: absolute;
+        top: 10%;
+        left: 60%;
+    }
+
+    @keyframes yellow1 {
+        from {
+            box-shadow: none;
+        }
+        to {
+            box-shadow: 0 -10px 10px yellow,
+            0 -10px 20px yellow,
+            0 -10px 30px yellow,
+            0 -10px 60px yellow;
+        }
+
+    }
+    .box1{
+    	width: 200px;
+    	height: 40px;
+    	background:red;
+    }
+    a{
+    	width: 30px;
+    	height: 40px;
+    	line-height: 40px;
+    	display: inline-block;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="red"></div>
+        <div class="yellow"></div>
+    </div>
+    <div class="box1" style="">
+<a href="" style="background: lime;">asdasd</a>
+<a href="" style="background: gray;"></a>
+<a href=""></a>
+<a href=""></a>
+<a href=""></a>
+    </div>
+</body>
+
+</html>

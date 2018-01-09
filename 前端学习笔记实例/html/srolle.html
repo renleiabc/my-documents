@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>js实现消息滚动效果-jq22.com</title>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .scroll-box {
+        width: 400px;
+        height: 40px;
+        overflow: hidden;
+    }
+
+    .scroll-top {
+        width: 400px;
+        height: 40px;
+        border-bottom:2px solid #000;
+        overflow: hidden;
+    }
+
+    .scroll-top span {
+        display: inline-block;
+        height: 40px;
+        float: left;
+        width: 25%;
+        text-align: center;
+        line-height: 40px;
+    }
+
+    .scroll-box ul {
+        list-style: none;
+        width: 100%;
+        height: 40px;
+    }
+
+    .scroll-box ul li {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+    }
+    .box{
+      border:2px solid #000;
+      width: 400px;
+      margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="scroll-top">
+            <span>全部</span>
+            <span>警告</span>
+            <span>故障</span>
+            <span>运营</span>
+        </div>
+        <div class="scroll-box">
+            <ul id="ulBox">
+                <li>1好消息！好消息！本店所有商品全部白送1</li>
+                <li>2好消息！好消息！本店所有商品全部白送2</li>
+                <li>3好消息！好消息！本店所有商品全部白送3</li>
+                <li>4好消息！好消息！本店所有商品全部白送4</li>
+                <li>5好消息！好消息！本店所有商品全部白送5</li>
+                <li>6好消息！好消息！本店所有商品全部白送6</li>
+                <li>7好消息！好消息！本店所有商品全部白送7</li>
+                <li>8好消息！好消息！本店所有商品全部白送8</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        //获得当前<ul>
+        var $uList = $("#ulBox");
+        var timer = null;
+        //触摸清空定时器
+        $uList.hover(function() {
+                clearInterval(timer);
+            },
+            function() { //离开启动定时器
+                timer = setInterval(function() {
+                        scrollList($uList);
+                    },
+                    1000);
+            }).trigger("mouseleave"); //自动触发触摸事件
+        //滚动动画
+        function scrollList(obj) {
+            //获得当前<li>的高度
+            var scrollHeight = obj.find("li:first").height();
+            //滚动出一个<li>的高度
+            obj.stop().animate({
+                marginTop: -scrollHeight
+            }, 600, function() {
+                //动画结束后，将当前<ul>marginTop置为初始值0状态，再将第一个<li>拼接到末尾。
+                obj.css({
+                    marginTop: 0
+                }).find("li:first").appendTo(obj);
+            });
+        }
+    });
+    </script>
+</body>
+
+</html>

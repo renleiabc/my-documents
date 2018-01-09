@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function fn(n) {
+        if (isNaN(n)) {
+            console.log(n)
+            alert('no number');
+        } else {
+
+            if (2 <= n && n <= 31) {
+                console.log(n)
+                var arr =[];
+                console.log(arr);
+                for (var i = 0; i < n; i++) {
+                    //判断当前数组下标为i的元素是否已经保存到临时数组
+                    //如果已保存，则跳过，否则将此元素保存到临时数组中
+                    var num = parseInt(Math.random() * (32 - 2 + 1) + 2);
+                    if (arr.indexOf(num) == -1) {
+                        arr.push(num);
+                    }
+                }
+                return arr;
+            } else {
+                alert("no")
+            }
+        }
+    }
+    console.log(JSON.stringify(fn(16))+"="+fn(16).length);
+
+    var str = "renlei";
+    console.log(isNaN('10'));
+    for (var i = 0; i < str.length; i++) {
+        console.log(str[i]);
+    }
+    </script>
+</body>
+
+</html>
