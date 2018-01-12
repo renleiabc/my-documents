@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css" media="screen">
+    input {
+        width: 200px;
+        height: 30px;
+    }
+    </style>
+</head>
+
+<body>
+    <input type="text" name="" id="username" placeholder="username">
+    <input type="password" name="" id="password" placeholder="password">
+    <button id="btn">button</button>
+    <script type="text/javascript">
+    var loginArr = [{ "username": "1", "password": "1" }, { "username": "2", "password": "2" }, { "username": "3", "password": "3" }];
+
+    var username = document.getElementById("username");
+    var password = document.getElementById("password");
+    var oBtn = document.getElementById("btn");
+    oBtn.onclick = function() {
+        var isExitUserName = false;
+        var isExitPwd = false;
+        var user = username.value;
+        var word = password.value;
+        console.log(word);
+        var str;
+        for (var i = 0; i < loginArr.length; i++) {
+            if (loginArr[i].username == user) {
+                str = i
+                isExitUserName = true;
+            }
+        }
+        console.log(str);
+        console.log(loginArr[str].password == word)
+        if (loginArr[str].password == word) {
+            isExitPwd = true;
+        }
+        if (user === 'admin') {
+            /*路由跳转this.$router.push*/
+            alert('超级管理员登陆');
+            return false;
+        }
+
+        if (!isExitUserName) {
+            alert("用户不存在")
+            return false;
+        }
+        if (!isExitPwd) {
+            alert("密码输入错误")
+            return false;
+        }
+        console.log(isExitPwd)
+        if (isExitUserName && isExitPwd) {
+            alert("登录成功");
+            return false;
+        }
+    }
+    </script>
+</body>
+
+</html>
