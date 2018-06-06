@@ -8,13 +8,15 @@
     [class^="test"] {
         background: #ffff00;
     }
-    [class^="inner"]{
+
+    [class^="inner"] {
         width: 100px;
         height: 100px;
         margin-bottom: 20px;
         background-color: red;
     }
-    .text{
+
+    .text {
         background-color: lime;
     }
     </style>
@@ -26,9 +28,36 @@
     <div class="inner-2 text"></div>
     <div class="inner-3"></div>
     <script type="text/javascript">
-    var arr = [{ "name": "2017080208104", "time": "2017-08-02 " }, { "name": "2017080208104", "time": "2017-08-02 " }, { "name": "2017080708103", "time": "2017-08-07 " }, { "name": "2017082808100", "time": "2017-08-28 " }, { "name": "2017082908100", "time": "2017-08-29 " }, { "name": "2017082908100", "time": "2017-08-29 " }, { "name": "2017082908100", "time": "2017-08-29 " }, { "name": "2017082908101", "time": "2017-08-29 " }, { "name": "2017082908101", "time": "2017-08-29 " }, { "name": "2017082908101", "time": "2017-08-29 " }, { "name": "2017082908104", "time": "2017-08-29 " }, { "name": "2017082908104", "time": "2017-08-29 " }, { "name": "2017082908104", "time": "2017-08-29 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108101", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017091108110", "time": "2017-09-11 " }, { "name": "2017102708100", "time": "2017-10-27 " }];
+    var arr = [{
+            "name": "2017080208104",
+            "time": "2017-08-02 "
+        },
+        { "name": "2017080208104", "time": "2017-08-02 " },
+        { "name": "2017080708103", "time": "2017-08-07 " },
+        { "name": "2017082808100", "time": "2017-08-28 " },
+        { "name": "2017082908100", "time": "2017-08-29 " },
+        { "name": "2017082908100", "time": "2017-08-29 " },
+        { "name": "2017082908100", "time": "2017-08-29 " },
+        { "name": "2017082908101", "time": "2017-08-29 " },
+        { "name": "2017082908101", "time": "2017-08-29 " },
+        { "name": "2017082908101", "time": "2017-08-29 " },
+        { "name": "2017082908104", "time": "2017-08-29 " },
+        { "name": "2017082908104", "time": "2017-08-29 " },
+        { "name": "2017082908104", "time": "2017-08-29 " },
+        { "name": "2017091108101", "time": "2017-09-11 " },
+        { "name": "2017091108101", "time": "2017-09-11 " },
+        { "name": "2017091108101", "time": "2017-09-11 " },
+        { "name": "2017091108101", "time": "2017-09-11 " },
+        { "name": "2017091108101", "time": "2017-09-11 " },
+        { "name": "2017091108110", "time": "2017-09-11 " },
+        { "name": "2017091108110", "time": "2017-09-11 " },
+        { "name": "2017091108110", "time": "2017-09-11 " },
+        { "name": "2017091108110", "time": "2017-09-11 " },
+        { "name": "2017091108110", "time": "2017-09-11 " },
+        { "name": "2017102708100", "time": "2017-10-27 " }
+    ];
     var data = [];
-   // 第一个循环进行元素的推送；
+    // 第一个循环进行元素的推送；
     for (var i = 0; i < arr.length; i++) {
         // console.log(arr[i])
         //如果属性visited存在的话，就把元素推进新的数组中。
@@ -81,6 +110,37 @@
     }
     var data = dataReorganization(arr);
     console.log(JSON.stringify(data));
+    var obj = [{ id: 4, b: 2 }, { id: 1, b: 3 }, { id: 0, b: 4 }, { id: 2, b: 4 }, { id: 3, b: 4 }];
+    var arr = [1, 2, 3];
+    /*  for (var i = 0; i < arr.length; i++) {
+          var s = obj.filter(item =>
+              item.a !== arr[i]
+          );
+          console.log(s);
+      }*/
+    /* var a = [{ id: 15 }, { id: -1 }, { id: 0 }, { id: 3 }, { id: 12.2 }];
+     var b = [15, 3];
+     for (index in obj) {
+         if (arr.indexOf(obj[index]["id"]) >= 0)
+             obj.splice(index, 1);
+     }
+     console.log(obj);*/
+    var s = obj.filter(item => { return !arr.includes(item.id); });
+    console.log(s);
+    var arr12 = [83, 82, 80, 22, 86, 83, 82, 80, 22, 86];
+    //数据去重的函数
+    function unique(arr) {
+        var res = [];
+        var json = {};
+        for (var i = 0; i < arr.length; i++) {
+            if (!json[arr[i]]) {
+                res.push(arr[i]);
+                json[arr[i]] = 1;
+            }
+        }
+        return res;
+    };
+    console.log(unique(arr12));
     </script>
 </body>
 

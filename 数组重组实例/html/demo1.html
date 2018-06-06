@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    var demo = "a b===";
+    var code = encodeURIComponent(demo);
+    var unCode = decodeURIComponent(code);
+    console.log(code);
+    console.log(unCode);
+    console.log(demo === unCode);
+    console.log(null == null);
+    var n = null;
+    console.log(n);
+    console.log(demo)
+    if (null) {
+        console.log("++++")
+    } else {
+        console.log("====")
+    }
+    var ages = [{ a: 0, b: 2 }, { a: 1, b: 3 }, { a: 0, b: 4 }];
+
+    function check(obj) {
+        if (obj.a !== 1) {
+            return obj;
+        }
+    }
+
+    function myFunction() {
+        return ages.filter(check);
+    }
+    console.log(myFunction());
+    var obj = [{ id: 4, b: 2 }, { id: 1, b: 3 }, { id: 0, b: 4 }, { id: 2, b: 4 }, { id: 3, b: 4 }];
+    var arr = [1, 2, 3];
+  /*  for (var i = 0; i < arr.length; i++) {
+        var s = obj.filter(item =>
+            item.a !== arr[i]
+        );
+        console.log(s);
+    }*/
+   /* var a = [{ id: 15 }, { id: -1 }, { id: 0 }, { id: 3 }, { id: 12.2 }];
+    var b = [15, 3];
+    for (index in obj) {
+        if (arr.indexOf(obj[index]["id"]) >= 0)
+            obj.splice(index, 1);
+    }
+    console.log(obj);*/
+    var s = obj.filter(item => { return !arr.includes(item.id); });
+    console.log(s)
+    </script>
+</body>
+
+</html>

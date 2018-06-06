@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    /* function WriteLog(sWrite) {
+                var fso, tf;
+                fso = new ActiveXObject("Scripting.FileSystemObject"); //获取对象  
+                tf = fso.OpenTextFile("c:\\log.txt", 8, true); //没有便创建文件，8代表追加文件。  
+                var myDate = new Date();
+                tf.WriteLine(myDate.getHours() + ":" + myDate.getMinutes() + ":" + myDate.getSeconds()); //写一行,并使文件结尾跳到新的一行  
+                tf.WriteLine(sWrite); //文件结尾在当前行的下一行开头处。        
+                tf.Write(""); //文件结尾就在当前行的最后一个字符后面  
+                tf.Close(); //关闭文件  
+            }
+
+            WriteLog("ddd");
+
+            function settime(obj) {
+                if (countdown == 0) {
+                    obj.removeAttribute("disabled");
+                    obj.value = "免费获取验证码";
+                    countdown = 60;
+                    return;
+                } else {
+                    obj.setAttribute("disabled", true);
+                    obj.value = "重新发送(" + countdown + ")";
+                    countdown--;
+                }
+                setTimeout(function() {
+                    settime(obj)
+                }, 1000)
+            }
+            init() {
+                    var obj = new WxLogin({
+                        id: "login_container",
+                        appid: this.appid,
+                        scope: this.scope,
+                        redirect_uri: this.redirect_uri,
+                        state: this.state,
+                        style: this.style,
+                        href: this.href
+                    });
+                    //请求微信二维码
+                    this.$post("/wechat/scan", {}).then(res => {
+                        console.log(JSON.stringify(res));
+                        if (res.status == "success" && res.code == "200") {
+
+                        } else {
+                            console.log("shibai")
+                        }
+                    })
+                    var obj = {
+                        mailCode: "",
+                        appid: "",
+                        scope: "",
+                        redirect_uri: "",
+                        state: "",
+                        style: "",
+                        href: ""
+                    }*/
+    var json = { 颜色: "1708480395608103", 蓝色: "1708742016288631" };
+    var keyArr = Object.keys(json);
+    var val = json[keyArr[0]];
+    console.log(val);
+    console.log(keyArr)
+    </script>
+</body>
+
+</html>
